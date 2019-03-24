@@ -42,6 +42,7 @@ public class ReviewActivity extends AppCompatActivity {
             Toast.makeText(this, "Congratulations,You finished reviewing!", Toast.LENGTH_SHORT).show();
         }
         else
+
             ((TextView) findViewById(R.id.textView_wrong)).setText(wrong_words[Word_num]);
     }
 
