@@ -79,11 +79,24 @@ public class LearnActivity extends AppCompatActivity {
     public void Finish(View view) {
         Toast.makeText(this, "Congratulations,You answered "+Right_num+" questions correctly.let's start reviewing. ", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(this, ReviewActivity.class);
+        intent.putExtra("word",wrong_words);
+        intent.putExtra("mean",wrong_means);
         startActivity(intent);
     }
 
     public void Skip(View view) {
-
+        Toast.makeText(this, "skip!", Toast.LENGTH_SHORT).show();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                String sql1 = "select word from Words where id="+(Word_num+1)+"";
+                wrong_words = Database.getUserInfoByName(sql1);
+                String sql2 = "select mean from Words where id="+(Word_num+1)+"";
+                wrong_means = Database.getUserInfoByName(sql2);
+                Message m = new Message();
+                handler.sendMessage(m);
+            }
+        }).start();
         Refresh();
     }
 
@@ -118,7 +131,7 @@ public class LearnActivity extends AppCompatActivity {
     private void Refresh(){
         Word_num += 1;
         Mean_num += 1;
-        if(Word_num==9){
+        if(Word_num==10){
             Toast.makeText(this, "Congratulations,You answered "+Right_num+" questions correctly.let's start reviewing. ", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, ReviewActivity.class);
             intent.putExtra("word",wrong_words);
