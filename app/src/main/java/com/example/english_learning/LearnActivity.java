@@ -1,35 +1,16 @@
 package com.example.english_learning;
 
 import android.content.Intent;
-import android.media.MediaPlayer;
-import android.media.SoundPool;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.util.Random;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.ProtocolException;
-import java.net.URL;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Random;
-
-import static com.example.english_learning.Database.getUserInfoByName;
 
 public class LearnActivity extends AppCompatActivity {
     static private int Word_num = 0;

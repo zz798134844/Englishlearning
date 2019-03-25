@@ -2,8 +2,6 @@ package com.example.english_learning;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -31,8 +29,6 @@ public class ReviewActivity extends AppCompatActivity {
             Toast.makeText(this, "Congratulations,You all right!", Toast.LENGTH_SHORT).show();
         }else
         ((TextView) findViewById(R.id.textView_wrong)).setText(wrong_words[Word_num]);
-        //wrong_words = new String[wrong_n];
-        //wrong_means = new String[wrong_n];
     }
 
     public void Forget(View view) {
