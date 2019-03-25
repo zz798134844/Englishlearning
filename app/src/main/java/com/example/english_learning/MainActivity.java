@@ -46,10 +46,11 @@ public class MainActivity extends AppCompatActivity {
     public void Learn(View view) {
         Intent intent = new Intent(this, LearnActivity.class);
         startActivity(intent);
+        System.exit(0);
     }
 
     public void Exit(View view) {
-        android.os.Process.killProcess(android.os.Process.myPid());   //获取PID
+        //android.os.Process.killProcess(android.os.Process.myPid());   //获取PID
         System.exit(0);
     }
 }

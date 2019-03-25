@@ -41,6 +41,7 @@ public class LearnActivity extends AppCompatActivity {
 
     private String[] wrong_words = new String[30];
     private String[] wrong_means = new String[30];
+    private String wrong_num="";
     private int[] num = new int[10];
     private int i =0;
 
@@ -55,7 +56,7 @@ public class LearnActivity extends AppCompatActivity {
             rand = new Random().nextInt(4);
             String str1=String.valueOf(rand);
             Log.d("rand:",str1);
-            RightAnswerId = 2131165333+rand;
+            RightAnswerId = 2131165336+rand;
             int[] shuzu = new int[4];
             int n=new Random().nextInt(3)+1;
             if(rand==0){
@@ -146,7 +147,9 @@ public class LearnActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ReviewActivity.class);
         intent.putExtra("word",wrong_words);
         intent.putExtra("mean",wrong_means);
+        intent.putExtra("num",wrong_num);
         startActivity(intent);
+        System.exit(0);
     }
 
     public void Skip(View view) {
@@ -156,6 +159,7 @@ public class LearnActivity extends AppCompatActivity {
             public void run() {
                 num[i]=Word_num+1;
                 i++;
+                wrong_num=String.valueOf(i);
                 String sql1 = "select word from Words where id="+(num[0])+" or id="+(num[1])+" or id="+(num[2])+" or id="+(num[3])+
                         " or id="+(num[4])+" or id="+(num[5])+" or id="+(num[6])+" or id="+(num[7])+" or id="+(num[8])+" or id="+(num[9]);
                 wrong_words = Database.getUserInfoByName(sql1);
@@ -174,8 +178,9 @@ public class LearnActivity extends AppCompatActivity {
 
     private void CheckAnswers(int id){
         String str=String.valueOf(id);
-                Log.d("id",str);
+                Log.d("id1",str);
         if(id == RightAnswerId){
+            wrong_num=String.valueOf(i);
             addNum();
         }
         else{
@@ -184,9 +189,10 @@ public class LearnActivity extends AppCompatActivity {
                 @Override
                 public void run() {
                     String str=String.valueOf(Word_num);
-                    Log.d("id",str);
-                    num[i]=Word_num+1;
+                    Log.d("id2",str);
+                    num[i]=Word_num;
                     i++;
+                    wrong_num=String.valueOf(i);
                     String sql1 = "select word from Words where id="+(num[0])+" or id="+(num[1])+" or id="+(num[2])+" or id="+(num[3])+
                             " or id="+(num[4])+" or id="+(num[5])+" or id="+(num[6])+" or id="+(num[7])+" or id="+(num[8])+" or id="+(num[9]);
                     Log.d("id",sql1);
@@ -208,7 +214,9 @@ public class LearnActivity extends AppCompatActivity {
             Intent intent = new Intent(this, ReviewActivity.class);
             intent.putExtra("word",wrong_words);
             intent.putExtra("mean",wrong_means);
+            intent.putExtra("num",wrong_num);
             startActivity(intent);
+            System.exit(0);
         }
         Message m = new Message();
         handler.sendMessage(m);
