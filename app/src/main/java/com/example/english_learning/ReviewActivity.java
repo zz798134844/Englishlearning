@@ -10,8 +10,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class ReviewActivity extends AppCompatActivity {
-    private String[] wrong_words = new String[30];
-    private String[] wrong_means = new String[30];
+    private String[] wrong_words = new String[]{};
+    private String[] wrong_means = new String[]{};
 
     static private int Word_num = 0;
     static private int Mean_num = 0;
@@ -31,6 +31,7 @@ public class ReviewActivity extends AppCompatActivity {
     }
 
     public void Remember(View view){
+        ((TextView) findViewById(R.id.textView_mean)).setText("click forget show mean");
         Refresh();
     }
 
@@ -42,7 +43,6 @@ public class ReviewActivity extends AppCompatActivity {
             Toast.makeText(this, "Congratulations,You finished reviewing!", Toast.LENGTH_SHORT).show();
         }
         else
-
             ((TextView) findViewById(R.id.textView_wrong)).setText(wrong_words[Word_num]);
     }
 

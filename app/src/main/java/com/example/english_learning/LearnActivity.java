@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+import java.util.Random;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -40,21 +41,85 @@ public class LearnActivity extends AppCompatActivity {
 
     private String[] wrong_words = new String[30];
     private String[] wrong_means = new String[30];
+    private int[] num = new int[10];
+    private int i =0;
+
 
     private int[] SelectAnswerId = {R.id.textView_a, R.id.textView_b, R.id.textView_c, R.id.textView_d};
-
-    private int RightAnswerId = 2131165333;
+    private int rand = 0;
+    private int RightAnswerId = 0;
 
     Handler handler = new Handler(new Handler.Callback() {
         @Override
         public boolean handleMessage(Message message) {
-
+            rand = new Random().nextInt(4);
+            String str1=String.valueOf(rand);
+            Log.d("rand:",str1);
+            RightAnswerId = 2131165333+rand;
+            int[] shuzu = new int[4];
+            int n=new Random().nextInt(3)+1;
+            if(rand==0){
+                shuzu[0]=0;
+                shuzu[1]=new Random().nextInt(3)+1;
+                while(n==shuzu[1])
+                    n=new Random().nextInt(3)+1;
+                shuzu[2]=n;
+                for(int i=1;i<4;i++)
+                {
+                    if(i!=shuzu[1]&&i!=shuzu[2])
+                        shuzu[3]=i;
+                }
+            }
+            if(rand==1){
+                shuzu[1]=0;
+                shuzu[0]=new Random().nextInt(3)+1;
+                while(n==shuzu[0])
+                    n=new Random().nextInt(3)+1;
+                shuzu[2]=n;
+                for(int i=1;i<4;i++)
+                {
+                    if(i!=shuzu[0]&&i!=shuzu[2])
+                        shuzu[3]=i;
+                }
+            }
+            if(rand==2){
+                shuzu[2]=0;
+                shuzu[0]=new Random().nextInt(3)+1;
+                while(n==shuzu[0])
+                    n=new Random().nextInt(3)+1;
+                shuzu[1]=n;
+                for(int i=1;i<4;i++)
+                {
+                    if(i!=shuzu[0]&&i!=shuzu[1])
+                        shuzu[3]=i;
+                }
+            }
+            if(rand==3){
+                shuzu[3]=0;
+                shuzu[0]=new Random().nextInt(3)+1;
+                while(n==shuzu[0])
+                    n=new Random().nextInt(3)+1;
+                shuzu[1]=n;
+                for(int i=1;i<4;i++)
+                {
+                    if(i!=shuzu[0]&&i!=shuzu[1])
+                        shuzu[2]=i;
+                }
+            }
+            String str2=String.valueOf(shuzu[0]);
+            Log.d("a:",str2);
+            String str3=String.valueOf(shuzu[1]);
+            Log.d("b:",str3);
+            String str4=String.valueOf(shuzu[2]);
+            Log.d("c:",str4);
+            String str5=String.valueOf(shuzu[3]);
+            Log.d("d:",str5);
             ((TextView) findViewById(R.id.textView_num)).setText(Right_num);
             ((TextView) findViewById(R.id.textView_word)).setText(words[Word_num]);
-            ((TextView) findViewById(R.id.textView_a)).setText(means[Mean_num+0]);
-            ((TextView) findViewById(R.id.textView_b)).setText(means[Mean_num+1]);
-            ((TextView) findViewById(R.id.textView_c)).setText(means[Mean_num+2]);
-            ((TextView) findViewById(R.id.textView_d)).setText(means[Mean_num+3]);
+            ((TextView) findViewById(R.id.textView_a)).setText(means[Mean_num+shuzu[0]]);
+            ((TextView) findViewById(R.id.textView_b)).setText(means[Mean_num+shuzu[1]]);
+            ((TextView) findViewById(R.id.textView_c)).setText(means[Mean_num+shuzu[2]]);
+            ((TextView) findViewById(R.id.textView_d)).setText(means[Mean_num+shuzu[3]]);
 
             return false;}
     });
@@ -89,12 +154,14 @@ public class LearnActivity extends AppCompatActivity {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                String sql1 = "select word from Words where id="+(Word_num+1)+"";
+                num[i]=Word_num+1;
+                i++;
+                String sql1 = "select word from Words where id="+(num[0])+" or id="+(num[1])+" or id="+(num[2])+" or id="+(num[3])+
+                        " or id="+(num[4])+" or id="+(num[5])+" or id="+(num[6])+" or id="+(num[7])+" or id="+(num[8])+" or id="+(num[9]);
                 wrong_words = Database.getUserInfoByName(sql1);
-                String sql2 = "select mean from Words where id="+(Word_num+1)+"";
+                String sql2 = "select mean from Words where id="+(num[0])+" or id="+(num[1])+" or id="+(num[2])+" or id="+(num[3])+
+                        " or id="+(num[4])+" or id="+(num[5])+" or id="+(num[6])+" or id="+(num[7])+" or id="+(num[8])+" or id="+(num[9]);
                 wrong_means = Database.getUserInfoByName(sql2);
-                Message m = new Message();
-                handler.sendMessage(m);
             }
         }).start();
         Refresh();
@@ -107,7 +174,7 @@ public class LearnActivity extends AppCompatActivity {
 
     private void CheckAnswers(int id){
         String str=String.valueOf(id);
-                Log.d("asdsadasd",str);
+                Log.d("id",str);
         if(id == RightAnswerId){
             addNum();
         }
@@ -116,12 +183,17 @@ public class LearnActivity extends AppCompatActivity {
             new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    String sql1 = "select word from Words where id="+(Word_num+1)+"";
+                    String str=String.valueOf(Word_num);
+                    Log.d("id",str);
+                    num[i]=Word_num+1;
+                    i++;
+                    String sql1 = "select word from Words where id="+(num[0])+" or id="+(num[1])+" or id="+(num[2])+" or id="+(num[3])+
+                            " or id="+(num[4])+" or id="+(num[5])+" or id="+(num[6])+" or id="+(num[7])+" or id="+(num[8])+" or id="+(num[9]);
+                    Log.d("id",sql1);
                     wrong_words = Database.getUserInfoByName(sql1);
-                    String sql2 = "select mean from Words where id="+(Word_num+1)+"";
+                    String sql2 = "select mean from Words where id="+(num[0])+" or id="+(num[1])+" or id="+(num[2])+" or id="+(num[3])+
+                            " or id="+(num[4])+" or id="+(num[5])+" or id="+(num[6])+" or id="+(num[7])+" or id="+(num[8])+" or id="+(num[9]);
                     wrong_means = Database.getUserInfoByName(sql2);
-                    Message m = new Message();
-                    handler.sendMessage(m);
                 }
             }).start();
         }

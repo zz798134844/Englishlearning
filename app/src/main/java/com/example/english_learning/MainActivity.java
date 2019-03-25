@@ -48,8 +48,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void Review(View view) {
-        Intent intent = new Intent(this, ReviewActivity.class);
-        startActivity(intent);
+    public void Exit(View view) {
+        android.os.Process.killProcess(android.os.Process.myPid());   //获取PID
+        System.exit(0);
     }
 }

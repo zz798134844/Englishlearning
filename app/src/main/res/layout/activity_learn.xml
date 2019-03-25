@@ -5,6 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="411dp"
+        android:layout_height="737dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/bg" />
+
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
@@ -20,12 +28,12 @@
 
     <TextView
         android:id="@+id/textView_num"
-        android:layout_width="wrap_content"
+        android:layout_width="864dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="166dp"
         android:layout_marginLeft="166dp"
         android:layout_marginTop="136dp"
-        android:text="1"
+        android:text="0"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -61,7 +69,7 @@
         android:layout_marginStart="194dp"
         android:layout_marginLeft="194dp"
         android:layout_marginTop="219dp"
-        android:text="Apple"
+        android:text="word"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -99,7 +107,7 @@
         android:layout_marginLeft="26dp"
         android:layout_marginTop="300dp"
         android:onClick="Click"
-        android:text="TextView"
+        android:text="a"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -112,7 +120,7 @@
         android:layout_marginLeft="26dp"
         android:layout_marginTop="350dp"
         android:onClick="Click"
-        android:text="TextView"
+        android:text="b"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -125,7 +133,7 @@
         android:layout_marginLeft="26dp"
         android:layout_marginTop="400dp"
         android:onClick="Click"
-        android:text="TextView"
+        android:text="c"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -138,7 +146,7 @@
         android:layout_marginLeft="26dp"
         android:layout_marginTop="450dp"
         android:onClick="Click"
-        android:text="TextView"
+        android:text="d"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

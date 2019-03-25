@@ -5,6 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="411dp"
+        android:layout_height="734dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/bg" />
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
@@ -50,7 +58,7 @@
         android:layout_marginStart="50dp"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="440dp"
-        android:text="mean of this word:"
+        android:text="mean:"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -86,7 +94,7 @@
         android:layout_marginStart="147dp"
         android:layout_marginLeft="147dp"
         android:layout_marginTop="342dp"
-        android:text="TextView"
+        android:text="null"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -95,10 +103,10 @@
         android:id="@+id/textView_mean"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="213dp"
-        android:layout_marginLeft="213dp"
+        android:layout_marginStart="113dp"
+        android:layout_marginLeft="113dp"
         android:layout_marginTop="440dp"
-        android:text="TextView"
+        android:text="click forget show mean"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

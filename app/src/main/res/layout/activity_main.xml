@@ -6,14 +6,22 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="416dp"
+        android:layout_height="734dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/bg" />
+
     <Button
         android:id="@+id/button_review"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="75dp"
         android:layout_marginRight="75dp"
-        android:onClick="Review"
-        android:text="Review"
+        android:onClick="Exit"
+        android:text="Exit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/button_learn"
