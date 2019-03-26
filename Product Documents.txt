@@ -1,0 +1,4 @@
+1 click learn 
+2 learn and selete mean of 10 words (if u do not want to learn 10 words u can click finish)
+3 review wrong words (click forget show mean of this wrong word) click remember show another wrong word
+(all wrong words was remembered will back to mainactivity)

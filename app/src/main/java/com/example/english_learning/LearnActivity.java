@@ -17,11 +17,11 @@ public class LearnActivity extends AppCompatActivity {
     static private int Mean_num = 0;
     static private String Right_num = "0";
     static private int Right_n = 0;
-    private String[] words = new String[30];
-    private String[] means = new String[30];
+    private String[] words = new String[]{};
+    private String[] means = new String[]{};
 
-    private String[] wrong_words = new String[30];
-    private String[] wrong_means = new String[30];
+    private String[] wrong_words = new String[]{};
+    private String[] wrong_means = new String[]{};
     private String wrong_num="";
     private int[] num = new int[10];
     private int i =0;
@@ -161,6 +161,7 @@ public class LearnActivity extends AppCompatActivity {
         String str=String.valueOf(id);
                 Log.d("id1",str);
         if(id == RightAnswerId){
+            Toast.makeText(this, "right!", Toast.LENGTH_SHORT).show();
             wrong_num=String.valueOf(i);
             addNum();
         }
